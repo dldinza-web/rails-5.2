@@ -1,19 +1,19 @@
 class PersonsController < ApplicationController
   def create
-    @customer =  Customer.new filter_params
+    @customer =  Customer.new(name: filter_params[:stripeEmail])
 
     respond_to do |format|
       if @customer.save
         # flash[:notice].push 'Customer created successfully'
-        format.html { redirect_to root_path }
       else
         # flash[:error].push "Error: #{@customer.errors.full_messages.join('. ')}"
-        format.html { redirect_to new_customers_path }
       end
+
+      format.html { redirect_to root_path }
     end
   end
 
   def filter_params
-    params.require(:customer).permit(:name)
+    params.permit(:stripeEmail)
   end
 end
