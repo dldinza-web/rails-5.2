@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
     @total = Customer.count
     @customers = Customer.all
 
-    @customer = Customer.first
-    @order = Order.new(customer: @customer)
+    last_customer = Customer.last
+    @customer = last_customer.order.present? ? Customer.new : last_customer
   end
 end

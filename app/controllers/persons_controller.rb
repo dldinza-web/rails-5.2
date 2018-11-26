@@ -1,7 +1,6 @@
 class PersonsController < ApplicationController
   def create
     @customer =  Customer.new(name: params[:stripeEmail])
-    @customer.order = Order.new(token: params[:stripeToken])
 
     respond_to do |format|
       if @customer.save
