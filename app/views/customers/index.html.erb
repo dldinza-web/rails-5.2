@@ -19,7 +19,11 @@
 <% if @customers.present? %>
 <ul>
   <% @customers.each do |customer| %>
-    <li><%= customer.inspect %></li>
+    <li>
+      <%= customer.inspect %>
+      <br/> <%= customer.order.inspect %>
+      <br/><br/>
+    </li>
   <% end %>
 </ul>
 <% end %>

@@ -1,6 +1,7 @@
 class PersonsController < ApplicationController
   def create
-    @customer =  Customer.new(name: filter_params[:stripeEmail])
+    @customer =  Customer.new(name: params[:stripeEmail])
+    @customer.order = Order.new(token: params[:stripeToken])
 
     respond_to do |format|
       if @customer.save
@@ -11,9 +12,5 @@ class PersonsController < ApplicationController
 
       format.html { redirect_to root_path }
     end
-  end
-
-  def filter_params
-    params.permit(:stripeEmail)
   end
 end
