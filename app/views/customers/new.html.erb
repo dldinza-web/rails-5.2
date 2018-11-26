@@ -1,0 +1,9 @@
+<h1>New Customer</h1>
+
+<%= render 'common/_messages'%>
+
+<%= form_for @customer do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>

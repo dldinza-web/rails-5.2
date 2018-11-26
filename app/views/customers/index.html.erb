@@ -1,0 +1,23 @@
+<h1>Customers:</h1>
+
+<%= render 'common/_messages'%>
+
+<%= form_for @customer, url: persons_path do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<hr/>
+
+<% if @customers.present? %>
+<ul>
+  <% @customers.each do |customer| %>
+    <li><%= customer.inspect %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<a href="<%= new_customers_path %>">New</a>
+
+<div>Total Customers: <%= @total %></div>

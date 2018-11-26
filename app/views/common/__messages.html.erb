@@ -1,0 +1,13 @@
+<h2>Messages:</h2>
+
+<% if flash[:notice].present? %>
+  <% flash[:notice].each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
+
+<% if flash[:error].present? %>
+  <% flash[:error].each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
