@@ -3,6 +3,7 @@ class CustomersController < ApplicationController
     @total = Customer.count
     @customers = Customer.all
 
-    @customer = Customer.new
+    @customer = Customer.first
+    @order = Order.new(customer: @customer)
   end
 end

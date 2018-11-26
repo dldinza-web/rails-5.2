@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'customers#index'
 
-  resource :customers
+  resources :customers do
+    resources :orders, only: :create
+  end
 
-  resource :persons, only: :create
+  resources :persons, only: :create
 end

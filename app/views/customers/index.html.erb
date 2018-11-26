@@ -2,7 +2,7 @@
 
 <%= render 'common/_messages'%>
 
-<%= form_for @customer, url: persons_path do |f| %>
+<%= form_for @customer.order, url: customer_orders_path(customer_id: @customer.id) do |f| %>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
     data-description="<%="Persona"%>"
@@ -27,7 +27,5 @@
   <% end %>
 </ul>
 <% end %>
-
-<a href="<%= new_customers_path %>">New</a>
 
 <div>Total Customers: <%= @total %></div>
